@@ -1,0 +1,30 @@
+format = """
+[](#bf616a)\
+$os\
+$username\
+[](#9ca0b0)\
+$directory\
+[](#b48ead)\
+$git_branch\
+$git_status\
+[](#d08770)\
+$nodejs\
+$ruby\
+$python\
+[](#a3be8c)\
+$fill\
+[](#d8dee9)\
+$cmd_duration\
+$line_break\
+$character\
+"""
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[nodejs]
+format = "via [⬢ $version](bold green)"
+
+[directory]
+truncation_length = 3
