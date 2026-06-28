@@ -1,12 +1,39 @@
-[user]
-  name = Your Name
-  email = your@email.com
+# identity (name/email) は ~/.gitconfig.local で設定する (Git 管理外)
+# cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
+[include]
+	path = ~/.gitconfig.local
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [color]
-  ui = auto
+	ui = auto
 
 [core]
-  excludesfile = ~/.gitignore_global
+	autocrlf = input
+	# excludesfile は未指定 → ~/.config/git/ignore が自動で使われる
+
+[pager]
+	branch = false
+	diff = false
+
+[http]
+	postBuffer = 157286400
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+# 業務リポジトリ用の条件分岐 (~/.gitconfig-chrogo は Git 管理外)
+[includeIf "gitdir:~/workspace/chrogo/"]
+	path = ~/.gitconfig-chrogo

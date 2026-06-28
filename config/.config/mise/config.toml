@@ -1,7 +1,15 @@
 [tools]
-ruby = "latest"
 node = "lts"
-python = "latest"
+ruby = "3"
+python = "3"
 
 [settings]
 experimental = true
+# プロジェクトの .tool-versions / .node-version 等を尊重する
+legacy_version_file = true
+idiomatic_version_file = true
+idiomatic_version_file_enable_tools = ["node"]
+
+[settings.ruby]
+# プリビルドの ruby を使い、ネイティブビルド (= ビルドフラグ) を不要にする
+compile = false

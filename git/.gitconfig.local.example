@@ -1,0 +1,5 @@
+# ~/.gitconfig.local — マシン/アカウント固有の identity (Git 管理外)
+# cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
+[user]
+	name = Your Name
+	email = your@example.com

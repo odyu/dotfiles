@@ -1,0 +1,31 @@
+# ============================================================
+# ~/.zshenv.local — マシン固有設定 (Git 管理外)
+# 使い方:
+#   cp ~/dotfiles/zsh/.zshenv.local.example ~/.zshenv.local
+#   そのうえで必要な行のコメントを外して値を設定する
+# ============================================================
+
+# ---- 秘密情報 (API トークンなど) ----
+# export NOTION_API_TOKEN="..."
+# export SENTRY_API_TOKEN="..."
+# export SENTRY_ORG="..."
+
+# ---- マシン固有 PATH ----
+# export PATH="$HOME/.lmstudio/bin:$PATH"
+# export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
+
+# ---- 特定バージョンの Homebrew ツール (必要時のみ) ----
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
+# export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+# export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
+
+# ---- ネイティブ拡張のビルドフラグ ----
+# mise の ruby を compile=false (プリビルド) にしている場合は通常不要。
+# ソースからビルドする場合のみ有効化:
+# export LIBRARY_PATH="/opt/homebrew/lib:$LIBRARY_PATH"
+# export CPATH="/opt/homebrew/include:$CPATH"
+# export LDFLAGS="-L$(brew --prefix)/lib"
+# export PKG_CONFIG_PATH="$(brew --prefix)/opt/libffi/lib/pkgconfig"
+# export RUBY_CFLAGS="-w"
+# export CPPFLAGS="-Wno-incompatible-function-pointer-types -Wno-implicit-function-declaration"
