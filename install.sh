@@ -14,14 +14,22 @@ brew update
 echo "==> 2. Installing packages..."
 brew install stow mise starship zsh-autosuggestions zsh-syntax-highlighting
 
-echo "==> 3. Stowing dotfiles..."
+echo "==> 3. Installing AeroSpace..."
+brew install --cask nikitabobko/tap/aerospace
+
+echo "==> 4. Installing JankyBorders (borders)..."
+brew tap FelixKratz/formulae
+brew trust --formula felixkratz/formulae/borders
+brew install borders
+
+echo "==> 5. Stowing dotfiles..."
 cd "$DOTFILES"
 stow -R zsh
 stow -R tmux
 stow -R git
 stow -R config
 
-echo "==> 4. Installing mise tools..."
+echo "==> 6. Installing mise tools..."
 if command -v mise &>/dev/null; then
   mise install
 fi
