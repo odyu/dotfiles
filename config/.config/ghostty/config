@@ -1,0 +1,27 @@
+# Ghostty configuration
+# docs: https://ghostty.org/docs/config
+
+# ---- フォント (Brewfile の Nerd Font を使用) ----
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+# ---- テーマ / 外観 ----
+theme = nord
+background-opacity = 0.96
+window-padding-x = 10
+window-padding-y = 10
+cursor-style = block
+cursor-style-blink = false
+
+# ---- macOS ----
+# Option キーを Alt として扱う (ターミナルでの Meta 入力用)
+macos-option-as-alt = true
+macos-titlebar-style = tabs
+
+# ---- シェル統合 ----
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+# ---- その他 ----
+copy-on-select = true
+confirm-close-surface = false
