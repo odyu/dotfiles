@@ -44,16 +44,23 @@ alias ll='ls -la'
 alias la='ls -A'
 alias grep='grep --color=auto'
 alias p='pnpm'
+alias y='yarn'
 
-# git (旧 oh-my-zsh git プラグイン相当の最小セット)
+# git (旧 oh-my-zsh git プラグイン互換。.zsh_history の高頻度コマンドに基づく)
 alias gst='git status'
 alias ga='git add'
-alias gc='git commit'
+alias gaa='git add --all'
+alias gc='git commit -v'
+alias gcmsg='git commit -m'
 alias gco='git checkout'
+alias gcb='git checkout -b'
 alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
+alias gfa='git fetch --all --prune'
 alias gb='git branch'
+alias gt='git tag'
+alias glg='git log --stat'
 alias glog='git log --oneline --graph --decorate'
 
 # マージ済み (upstream が gone) のローカルブランチを削除
