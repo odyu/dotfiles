@@ -1,0 +1,16 @@
+# マシン固有 / 秘密情報 (絶対にコミットしない)
+**/.zshenv.local
+**/.gitconfig.local
+.gitconfig-chrogo
+*-chrogo
+*.local
+
+# 退避先
+dotfiles-backup/
+
+# OS
+.DS_Store
+
+# 一時ファイル
+Brewfile.dump
+*.swp
