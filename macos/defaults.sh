@@ -14,6 +14,12 @@ defaults write -g InitialKeyRepeat -int 10
 # 長押しでアクセント候補ではなくキーリピートを有効化 (vim 等で便利)
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+echo "==> Spotlight (Raycast を使うので無効化)"
+sudo mdutil -a -i off 2>/dev/null || true
+
+echo "==> compinit 警告対策 (Homebrew ディレクトリの group-w 除去)"
+sudo chmod g-w /opt/homebrew/share 2>/dev/null || true
+
 echo "==> キーボード / 入力"
 # フルキーボードアクセス (Tab で全コントロールを移動)
 defaults write -g AppleKeyboardUIMode -int 3
