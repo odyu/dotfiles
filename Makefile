@@ -4,7 +4,7 @@
 SHELL    := /bin/bash
 DOTFILES := $(HOME)/dotfiles
 STOW_PKGS := zsh git tmux config
-BACKUP   := $(HOME)/dotfiles-backup
+BACKUP   := $(DOTFILES)/.backup
 
 .DEFAULT_GOAL := help
 
@@ -32,6 +32,11 @@ link: ## stow で symlink を冪等に適用 (既存実ファイルは backup �
 		while IFS= read -r f; do \
 			tgt="$(HOME)/$$f"; \
 			if [ -e "$$tgt" ] && [ ! -L "$$tgt" ]; then \
+				dir="$$(dirname "$$tgt")"; \
+				if [ -L "$$dir" ]; then \
+					resolved="$$(cd "$$(dirname "$$dir")" 2>/dev/null && cd "$$(readlink "$$dir")" 2>/dev/null && pwd -P 2>/dev/null)"; \
+					case "$$resolved" in $(DOTFILES)/*) continue;; esac; \
+				fi; \
 				mkdir -p "$$(dirname "$(BACKUP)/$$f")"; \
 				mv "$$tgt" "$(BACKUP)/$$f"; \
 				echo "  backed up: $$f"; \

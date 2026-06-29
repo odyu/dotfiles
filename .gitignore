@@ -6,7 +6,7 @@
 *.local
 
 # 退避先
-dotfiles-backup/
+.backup/
 
 # OS
 .DS_Store
