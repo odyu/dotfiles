@@ -23,6 +23,11 @@ bootstrap: ## Homebrew 未導入なら導入
 	else echo "==> Homebrew OK"; fi
 
 brew: ## Brewfile を同期 (formula/cask/tap/font/vscode)
+	@# Homebrew 6+ / 管理環境では第三者 tap に明示的な信頼付与が必要 (無い環境では無害にスキップ)
+	@if brew commands 2>/dev/null | grep -qx trust; then \
+		echo "==> trusting 3rd-party taps"; \
+		brew trust --tap felixkratz/formulae nikitabobko/tap 2>/dev/null || true; \
+	fi
 	@echo "==> brew bundle"
 	@brew bundle --file=$(DOTFILES)/Brewfile
 

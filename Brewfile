@@ -21,7 +21,7 @@ brew "borders"                  # AeroSpace のウィンドウ枠
 brew "rust"
 brew "php"
 brew "python-setuptools"
-brew "pnpm"
+# node / pnpm は mise で管理 (config/.config/mise/config.toml)
 
 # ---- データベース / インフラ ----
 brew "mysql"

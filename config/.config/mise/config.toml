@@ -1,5 +1,6 @@
 [tools]
 node = "lts"
+pnpm = "latest"
 ruby = "3"
 python = "3"
 # JDK は homebrew の openjdk PATH ではなく mise で管理 (Adoptium/Temurin)
