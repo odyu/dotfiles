@@ -27,6 +27,7 @@ brew: ## Brewfile を同期 (formula/cask/tap/font/vscode)
 	@brew bundle --file=$(DOTFILES)/Brewfile
 
 link: ## stow で symlink を冪等に適用 (既存実ファイルは backup へ退避)
+	@command -v stow >/dev/null 2>&1 || { echo "✗ stow 未導入。先に 'make brew' か 'brew install stow' を実行"; exit 1; }
 	@echo "==> backing up conflicting real files to $(BACKUP)"
 	@for pkg in $(STOW_PKGS); do \
 		while IFS= read -r f; do \

@@ -19,7 +19,6 @@ brew "borders"                  # AeroSpace のウィンドウ枠
 
 # ---- 開発言語ツール ----
 brew "rust"
-brew "openjdk"
 brew "php"
 brew "python-setuptools"
 brew "pnpm"
@@ -88,7 +87,6 @@ cask "tunnelblick"
 cask "appcleaner"
 cask "balenaetcher"
 cask "bitwarden"
-cask "lm-studio"
 
 # ---- VS Code 拡張 ----
 vscode "anthropic.claude-code"
