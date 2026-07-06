@@ -236,16 +236,24 @@ on-mode-changed = []
 
 # モニタ名 + フォールバックで接続状況を自動判定する。
 # 番号固定と違い、物理的に無いモニタは配列の次の候補へ自動で降りるため、
-# 何台つないでも（1〜3画面）破綻しない。名前は大文字小文字を無視した部分一致。
-#   1 | Built-in Retina Display / 2 | LG HDR 4K / 3 | LG IPS QHD
+# 何台つないでも破綻しない。名前は大文字小文字を無視した部分一致。
+#
+# 想定する2環境（どちらも同じ設定でカバー）:
+#   [DELL環境]  built-in + DELL 1枚
+#     1-3=built-in / 4-5=DELL / 6-10=built-in
+#   [LG環境]    built-in + LG HDR 4K + LG IPS QHD
+#     1-3=built-in / 4-7=LG HDR 4K / 8-10=LG IPS QHD
+#
+# ポイント: 6-7 は配列に DELL を入れないことで、DELL環境では built-in へ降格し、
+#           LG環境でのみ LG HDR 4K に載る。
 [workspace-to-monitor-force-assignment]
-    1 = 'built-in'                                # メイン(内蔵)に固定
+    1 = 'built-in'                                        # メイン(内蔵)に固定
     2 = 'built-in'
     3 = 'built-in'
-    4 = ['LG HDR 4K', 'built-in']                 # 4Kがあればそこ / 無ければメイン
-    5 = ['LG HDR 4K', 'built-in']
-    6 = ['LG HDR 4K', 'built-in']
+    4 = ['DELL', 'LG HDR 4K', 'built-in']                 # DELL→4K→メイン の優先順で降りる
+    5 = ['DELL', 'LG HDR 4K', 'built-in']
+    6 = ['LG HDR 4K', 'built-in']                         # 4Kがあればそこ / 無ければメイン(DELLは対象外)
     7 = ['LG HDR 4K', 'built-in']
-    8 = ['LG IPS QHD', 'LG HDR 4K', 'built-in']   # QHD→4K→メイン の優先順で降りる
-    9 = ['LG IPS QHD', 'LG HDR 4K', 'built-in']
-    10 = ['LG IPS QHD', 'LG HDR 4K', 'built-in']
+    8 = ['LG IPS QHD', 'built-in']                        # QHD→メイン (LG環境=QHD / それ以外=メイン)
+    9 = ['LG IPS QHD', 'built-in']
+    10 = ['LG IPS QHD', 'built-in']
