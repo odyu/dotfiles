@@ -24,14 +24,11 @@ brew "python-setuptools"
 # node / pnpm は mise で管理 (config/.config/mise/config.toml)
 
 # ---- データベース / インフラ ----
-# mysql はローカル常用しないため削除。必要時は docker か `brew install mysql`
 brew "mkcert"
 brew "foreman"
 brew "ollama"
 
 # ---- 画像 / メディア / ドキュメント処理 ----
-# imagemagick(v7)/libraw/giflib/libpng/cairo/pango/librsvg は vips/graphviz の依存で自動導入されるため明示不要
-# imagemagick@6 は IM6 API 専用の古い依存が無いため削除 (v7 は vips 経由で残る)
 brew "vips"
 brew "ffmpeg"
 brew "jpeg"
@@ -39,9 +36,8 @@ brew "graphviz"
 brew "d2"
 
 # ---- ライブラリ / その他 ----
-# openssl@3/libffi/pkgconf は node/php/rust/mysql 等の依存で自動導入されるため明示不要
 brew "libyaml"
-brew "mecab-ipadic"   # 日本語形態素解析 (mecab 本体も依存で入る)
+brew "mecab-ipadic"   # 日本語形態素解析
 brew "bitwarden-cli"
 
 # ---- フォント ----
