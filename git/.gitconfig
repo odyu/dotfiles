@@ -1,7 +1,6 @@
-# identity (name/email) は ~/.gitconfig.local で設定する (Git 管理外)
+# identity・アカウント固有の設定は ~/.gitconfig.local で行う (Git 管理外)
 # cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
-[include]
-	path = ~/.gitconfig.local
+# ※ include は「末尾」に置く。ここで上書きしたいので、下の credential 定義より後に読ませる。
 
 [init]
 	defaultBranch = main
@@ -33,6 +32,10 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
+# identity・アカウント固有の上書き (Git 管理外)。上の credential 定義より後に読ませる。
+[include]
+	path = ~/.gitconfig.local
 
 # 業務リポジトリ用の条件分岐 (~/.gitconfig-chrogo は Git 管理外)
 [includeIf "gitdir:~/workspace/chrogo/"]

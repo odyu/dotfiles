@@ -1,5 +1,31 @@
-# ~/.gitconfig.local — マシン/アカウント固有の identity (Git 管理外)
+# ~/.gitconfig.local — マシン/アカウント固有の設定 (Git 管理外)
 # cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
+#
+# identity(name/email)と push 認証で使う GitHub アカウントをここで指定する。
+# push 認証は `gh auth token --user <名前>` を使うカスタム credential helper で行うと、
+# 複数アカウントを `gh auth switch` なしで併用できる(gh の標準 helper は active のみ)。
+# 事前に各アカウントで `gh auth login` 済みであること。
+
+# --- 既定のアカウント ---
 [user]
 	name = Your Name
 	email = your@example.com
+[credential "https://github.com"]
+	username = your-github-login
+	helper =
+	helper = "!f() { [ \"$1\" = get ] && echo \"password=$(gh auth token --user your-github-login)\"; }; f"
+
+# --- 特定ディレクトリだけ別アカウントにする場合 (任意) ---
+# included ファイル内の includeIf も評価されるので、ここに分岐を書ける。
+# 別ファイル (例: ~/.gitconfig-personal) も Git 管理外で用意する。
+#   [includeIf "gitdir:~/path/to/personal-repos/"]
+#       path = ~/.gitconfig-personal
+#
+# ~/.gitconfig-personal の中身:
+#   [user]
+#       name = Other Name
+#       email = other@example.com
+#   [credential "https://github.com"]
+#       username = other-login
+#       helper =
+#       helper = "!f() { [ \"$1\" = get ] && echo \"password=$(gh auth token --user other-login)\"; }; f"
