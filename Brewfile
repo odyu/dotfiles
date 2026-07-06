@@ -37,7 +37,6 @@ brew "d2"
 
 # ---- ライブラリ / その他 ----
 brew "libyaml"
-brew "mecab-ipadic"   # 日本語形態素解析
 brew "bitwarden-cli"
 
 # ---- フォント ----
