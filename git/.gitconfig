@@ -33,10 +33,7 @@
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 
-# identity・アカウント固有の上書き (Git 管理外)。上の credential 定義より後に読ませる。
+# identity・アカウント固有の設定とディレクトリ別のアカウント切り替えは、すべて
+# ~/.gitconfig.local (Git 管理外) に集約する。上の credential 定義より後に読ませる。
 [include]
 	path = ~/.gitconfig.local
-
-# 業務リポジトリ用の条件分岐 (~/.gitconfig-chrogo は Git 管理外)
-[includeIf "gitdir:~/workspace/chrogo/"]
-	path = ~/.gitconfig-chrogo
