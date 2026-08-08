@@ -17,6 +17,9 @@ brew "zsh-completions"          # 追加補完定義
 brew "gh"                       # GitHub CLI
 brew "borders"                  # AeroSpace のウィンドウ枠
 
+# ---- ネットワーク / トンネル ----
+brew "cloudflared"
+
 # ---- 開発言語ツール ----
 brew "rust"
 brew "php"
@@ -77,3 +80,6 @@ vscode "dbaeumer.vscode-eslint"
 vscode "ms-ceintl.vscode-language-pack-ja"
 vscode "ms-vscode.vscode-typescript-next"
 vscode "shuvamraghuvanshi.run-package-scripts"
+
+# ---- utils ----
+brew "openchamber"
