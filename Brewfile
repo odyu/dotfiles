@@ -36,6 +36,7 @@ brew "mkcert"
 brew "foreman"
 brew "ollama"
 brew "mysql"
+brew "postgresql@18"
 
 # ---- 画像 / メディア / ドキュメント処理 ----
 brew "vips"
@@ -95,6 +96,7 @@ cask "brave-browser"
 cask "docker-desktop"
 cask "android-platform-tools"
 cask "aws-vpn-client"
+cask "gcloud-cli"               # Google Cloud CLI
 
 # ---- AI ツール ----
 cask "chatgpt-atlas"            # ChatGPT 公式ブラウザ
