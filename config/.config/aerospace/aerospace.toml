@@ -184,6 +184,11 @@ on-mode-changed = []
     alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
     alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
     alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+
+    # ガリガリローラー用: ワークスペースを順に移動（1→2→…→10→1、逆は10→9→…→1）
+    # 全モニタ横断・数値順で巡回する（persistent-workspaces の 1..10 を対象）
+    alt-ctrl-n = 'exec-and-forget aerospace list-workspaces --monitor all | aerospace workspace --stdin --wrap-around next'
+    alt-ctrl-p = 'exec-and-forget aerospace list-workspaces --monitor all | aerospace workspace --stdin --wrap-around prev'
     # alt-shift-a = 'move-node-to-workspace A'
     # alt-shift-b = 'move-node-to-workspace B'
     # alt-shift-c = 'move-node-to-workspace C'
