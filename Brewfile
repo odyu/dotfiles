@@ -35,6 +35,7 @@ brew "node"                     # node / pnpm は mise で管理も併用
 brew "mkcert"
 brew "foreman"
 brew "ollama"
+brew "podman"                   # コンテナランタイム
 brew "mysql"
 brew "postgresql@18"
 
